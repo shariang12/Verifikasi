@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pendaftaran Driver ZBOND</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00897B;  /* Tosca utama */
+      --primary-dark: #00695C; /* Tosca lebih gelap */
+      --primary-light: #E0F2F1; /* Tosca sangat muda */
+      --secondary: #4DB6AC; /* Tosca lebih muda */
+      --promo: #26A69A; /* Tosca promo */
+      --light: #F0F8F7; /* Background sangat muda */
+      --text: #263238; /* Teks gelap */
+      --text-light: #546E7A; /* Teks abu-abu */
+      --border: #B2DFDB; /* Border tosca muda */
+      --shadow: 0 8px 24px rgba(0, 137, 123, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      background-color: var(--primary);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 137, 123, 0.2);
+    }
+
+    .header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-container {
+      background: white;
+      width: 100%;
+      max-width: 580px;
+      margin: 30px 0;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .required::after {
+      content: ' *';
+      color: #E53935;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 137, 123, 0.1);
+    }
+
+    .atribut-container {
+      text-align: center;
+      margin: 25px 0;
+    }
+
+    .atribut-image {
+      max-width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .atribut-caption {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .promo-banner {
+      background: linear-gradient(135deg, var(--promo), #26C6DA);
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 20px 0;
+      box-shadow: 0 4px 12px rgba(38, 166, 154, 0.2);
+    }
+
+    .promo-banner h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .promo-banner p {
+      margin: 8px 0 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .note {
+      background: var(--primary-light);
+      padding: 18px;
+      margin: 25px 0;
+      border-radius: 8px;
+      color: var(--primary-dark);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .note-icon {
+      font-size: 1.2rem;
+      margin-top: 2px;
+      color: var(--primary-dark);
+    }
+
+    .checkbox-area {
+      margin: 25px 0;
+      font-size: 0.9rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .checkbox-area input {
+      width: auto;
+      margin-right: 12px;
+      margin-top: 4px;
+      accent-color: var(--primary);
+    }
+
+    .checkbox-label {
+      font-weight: 400;
+      color: var(--text-light);
+    }
+
+    .saldo-info {
+      background: #E8F5E9;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #43A047;
+      margin: 15px 0;
+      font-size: 0.85rem;
+      color: #2E7D32;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 16px;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    button:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 105, 92, 0.2);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .whatsapp-icon {
+      font-size: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-light);
+      font-size: 0.85rem;
+      background-color: white;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .form-container {
+        padding: 30px 20px;
+        margin: 20px 0;
+      }
+      
+      .form-container h2 {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+      }
+      
+      input, select {
+        padding: 12px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>ZBOND VERIFIKASI</h1>
+  </div>
+
+  <div class="container">
+    <div class="form-container">
+      <h2>Verifikasi Driver ZBOND</h2>
+
+      <div class="promo-banner">
+        <h3>🎉 GRATIS SALDO 50.000</h3>
+        <p>Untuk pendaftar driver baru bulan ini, dapatkan saldo senilai Rp50.000!</p>
+      </div>
+
+      <form id="daftarForm">
+        <div class="form-group">
+          <label for="nama" class="required">Nama Lengkap (Sesuai Aplikasi ZBOND)</label>
+          <input type="text" id="nama" required placeholder="Nama di aplikasi ZBOND" />
+        </div>
+
+        <div class="form-group">
+          <label for="nomor" class="required">Nomor WhatsApp Aktif</label>
+          <input type="tel" id="nomor" required placeholder="Contoh: 081234567890" />
+        </div>
+
+        <div class="form-group">
+          <label for="jenis" class="required">Jenis Kendaraan</label>
+          <select id="jenis" required>
+            <option value="" disabled selected>-- Pilih Jenis Kendaraan --</option>
+            <option value="Motor">Motor</option>
+            <option value="Mobil">Mobil</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="merk" class="required">Merk Kendaraan</label>
+          <input type="text" id="merk" required placeholder="Contoh: Honda Beat, Toyota Avanza" />
+        </div>
+
+        <div class="form-group">
+          <label for="nopol" class="required">Nomor Polisi Kendaraan</label>
+          <input type="text" id="nopol" required placeholder="Contoh: B 1234 ABC" />
+        </div>
+
+        <div class="form-group">
+          <label for="kota" class="required">Kota/Kabupaten Domisili</label>
+          <input type="text" id="kota" required placeholder="Kota tempat tinggal Anda" />
+        </div>
+
+        <div class="atribut-container">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoEbebQ6Y9ZngAzwHVZbbSUkacjkUJUXg0lhdEVV6QIiebCwo6gsq_s9QRBCn5vZ0Qy2TCpjF3hTQc18pb8LauuHCZicMfzLAXjbmnF-R49WvlKzKt38XZmzzA6ujlx5fotdZ806VBQaO0PboO6B4lIRfwm8O5lXi9fM1ltfQAA6TFJxc-zPPTpL5I8Q/s1536/1000087186.png" alt="Atribut Jaket ZBOND" class="atribut-image">
+          <div class="atribut-caption">Jaket Resmi ZBOND - Harga Rp155.000</div>
+        </div>
+
+        <div class="saldo-info">
+          <strong>PERHATIAN:</strong> Saldo kompensasi sebesar Rp50.000 bersifat:
+          <ul style="margin: 8px 0 0 20px; padding-left: 5px;">
+            <li>Tidak dapat ditarik (non-withdrawable)</li>
+            <li>Hanya untuk pemotongan komisi (murni untuk kompensasi biaya operasional)</li>
+            <li>Berlaku sesuai ketentuan dan syarat yang berlaku</li>
+          </ul>
+        </div>
+
+        <div class="note">
+          <span class="note-icon">⚠️</span>
+          <div>
+            <strong>Penting:</strong> Pendaftaran driver ZBOND MOTOR <strong>wajib membeli atribut resmi</strong> berupa jaket ZBOND dengan harga <strong>Rp155.000</strong> yang dibayarkan saat verifikasi.
+            <br><br>
+            Jaket ini merupakan identitas resmi driver ZBOND dan harus digunakan saat bertugas.
+          </div>
+        </div>
+
+        <div class="checkbox-area">
+          <input type="checkbox" id="setuju" required />
+          <label for="setuju" class="checkbox-label">
+            Saya menyetujui untuk membeli jaket ZBOND seharga Rp155.000 sebagai syarat pendaftaran dan menjamin kebenaran data yang saya berikan. Saya juga memahami bahwa saldo Rp50.000 bersifat kompensasi dan tidak dapat ditarik.
+          </label>
+        </div>
+
+        <button type="submit">
+          <span class="whatsapp-icon"></span>
+          VERIFIKASI SEKARANG
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 ZBOND Digital Group
+  </footer>
+
+  <script>
+    document.getElementById("daftarForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nama = document.getElementById('nama').value.trim();
+      const nomor = document.getElementById('nomor').value.trim();
+      const jenis = document.getElementById('jenis').value;
+      const merk = document.getElementById('merk').value.trim();
+      const nopol = document.getElementById('nopol').value.trim();
+      const kota = document.getElementById('kota').value.trim();
+
+      if (!nama || !nomor || !jenis || !merk || !nopol || !kota || !document.getElementById('setuju').checked) {
+        alert('Harap lengkapi semua data dan setujui persyaratan!');
+        return;
+      }
+
+      const pesan = `Halo Admin ZBOND,%0A%0ASaya ingin mendaftar sebagai driver dengan data berikut:%0A%0A▸ *Nama Lengkap (Aplikasi ZBOND)*: ${nama}%0A▸ *Nomor WhatsApp*: ${nomor}%0A▸ *Jenis Kendaraan*: ${jenis}%0A▸ *Merk Kendaraan*: ${merk}%0A▸ *Nomor Polisi*: ${nopol}%0A▸ *Domisili*: ${kota}%0A%0ASaya telah melihat gambar jaket ZBOND dan menyetujui pembelian jaket seharga Rp155.000 sebagai syarat pendaftaran.%0A%0ASaya juga memahami bahwa saldo kompensasi Rp50.000 tidak dapat ditarik dan hanya untuk pemotongan komisi.%0A%0ATerima kasih.`;
+
+      const waLink = `https://wa.me/6283186727167?text=${encodeURIComponent(pesan)}`;
+      window.open(waLink, '_blank');
+    });
+  </script>
+</body>
+</html>
