@@ -376,7 +376,7 @@
         return;
       }
 
-      const pesan = `Halo Admin ZBOND,%0A%0ASaya ingin mendaftar sebagai driver dengan data berikut:%0A%0A▸ *Nama Lengkap (Aplikasi ZBOND)*: ${nama}%0A▸ *Nomor WhatsApp*: ${nomor}%0A▸ *Jenis Kendaraan*: ${jenis}%0A▸ *Merk Kendaraan*: ${merk}%0A▸ *Nomor Polisi*: ${nopol}%0A▸ *Domisili*: ${kota}%0A%0ASaya telah melihat gambar jaket ZBOND dan menyetujui pembelian jaket seharga Rp155.000 sebagai syarat pendaftaran.%0A%0ASaya juga memahami bahwa saldo kompensasi Rp50.000 tidak dapat ditarik dan hanya untuk pemotongan komisi.%0A%0ATerima kasih.`;
+      const pesan = `Halo Admin ZBOND,Saya ingin mendaftar sebagai driver dengan data berikut: *Nama Lengkap (Aplikasi ZBOND)*: ${nama} *Nomor WhatsApp*: ${nomor} *Jenis Kendaraan*: ${jenis} *Merk Kendaraan*: ${merk} *Nomor Polisi*: ${nopol} *Domisili*: ${kota} Saya telah melihat gambar jaket ZBOND dan menyetujui pembelian jaket seharga Rp155.000 sebagai syarat pendaftaran.Saya juga memahami bahwa saldo kompensasi Rp50.000 tidak dapat ditarik dan hanya untuk pemotongan komisi.Terima kasih.`;
 
       const waLink = `https://wa.me/6283186727167?text=${encodeURIComponent(pesan)}`;
       window.open(waLink, '_blank');
